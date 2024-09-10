@@ -1,7 +1,7 @@
 const faker = require('faker');
 faker.locale = 'pt_BR';
 const user = {};
-const adocaoElements = require('../PageObjects/adocaoElements');
+const adocaoElements = require('../PageObjects/Elements/adocaoElements');
 
 
 

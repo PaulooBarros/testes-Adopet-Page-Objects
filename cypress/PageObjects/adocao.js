@@ -1,8 +1,9 @@
 // adocao.js file
-const adocaoElements = require('./adocaoElements');
+const adocaoElements = require('./Elements/adocaoElements');
 
 const adocao = {
   adocaoPorMensagem: (user) => {
+    cy.wait(3000)
     cy.get(adocaoElements.headerMessagem).click()
     cy.get(adocaoElements.nomeMensagem).type(user.name, {delay:0})
     cy.get(adocaoElements.telefoneMensagem).type(user.phone, {delay:0})

@@ -1,4 +1,4 @@
-const cadastroElements = require('./cadastroElements');
+const cadastroElements = require('./Elements/cadastroElements');
 
 const cadastro = {
     preenchendoDadosValidos: (user) => {
