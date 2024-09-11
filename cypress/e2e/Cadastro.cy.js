@@ -30,11 +30,11 @@ describe('Testes Cadastro Adopet', () => {
       cadastro.preenchendoSemCampoSenha(user)
     })
 
-    it.only('Cadastro sem confirmar Senha', ()=> {
+    it('Cadastro sem confirmar Senha', ()=> {
       cadastro.preenchendoSemConfirmarSenha(user)
     })
 
-    it.only('Cadastro com senha diferente da confirmada', ()=>{
+    it('Cadastro com senha diferente da confirmada', ()=>{
       cadastro.preenchendoSenhaDiferente(user)
     })
   })

@@ -23,7 +23,7 @@ const cadastro = {
         cy.get(cadastroElements.inputSenha).type(user.password)
         cy.get(cadastroElements.inputConfirmarSenha).type(user.password)
         cy.get(cadastroElements.botaoCadastrar).click()
-        cy.get(cadastroElements.msgErro).should('be.visible')
+        cy.contains('É necessário informar um endereço de email').should('be.visible')
     },
 
     preenchendoSemCampoSenha: (user) => {
