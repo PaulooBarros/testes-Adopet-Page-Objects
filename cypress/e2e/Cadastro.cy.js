@@ -1,6 +1,6 @@
 const faker = require('faker'); 
 const user = {};
-
+import cadastroPO from '../support/cadastro/cadastroPO';
 
 describe('Testes Cadastro Adopet', () => {
   
@@ -11,32 +11,59 @@ describe('Testes Cadastro Adopet', () => {
     user.password = faker.internet.password(); 
   });
 
-  context('Page Object',()=>{
-    const cadastro = require('../PageObjects/cadastro');
+      it('Cadastro com dados válidos',()=>{
+        cadastroPO.preencherNome(user.name)
+        cadastroPO.preencherEmail(user.email)
+        cadastroPO.preencherSenha(user.password)
+        cadastroPO.confirmarSenha(user.password)
+        cadastroPO.clicarBotaoCadastrar()
+        cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('loginPath'))
+      })
 
-    it('Cadastro com dados válidos',()=>{
-      cadastro.preenchendoDadosValidos(user)
-    })
-
-    it('Cadastro sem o campo Nome',()=>{
-      cadastro.preenchendoSemCampoNome(user)
-    })
+      it('Cadastro sem o campo Nome',()=>{
+        cadastroPO.preencherEmail(user.email)
+        cadastroPO.preencherSenha(user.password)
+        cadastroPO.confirmarSenha(user.password)
+        cadastroPO.clicarBotaoCadastrar()
+        cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
+       
+     })
    
-    it('Cadastro sem o campo Email', ()=> {
-      cadastro.preenchendoSemCampoEmail(user)
-    })
+      it('Cadastro sem o campo Email', ()=> {
+        cadastroPO.preencherNome(user.name)
+        cadastroPO.preencherSenha(user.password)
+        cadastroPO.confirmarSenha(user.password)
+        cadastroPO.clicarBotaoCadastrar()
+        cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
+        cy.get(cadastroPO.selectors.erroCredenciais).should('be.visible')
+      })
 
-    it('Cadastro sem o campo Senha', ()=> {
-      cadastro.preenchendoSemCampoSenha(user)
-    })
+      it('Cadastro sem o campo Senha', ()=> {
+        cadastroPO.preencherNome(user.name)
+        cadastroPO.preencherEmail(user.email)
+        cadastroPO.confirmarSenha(user.password)
+        cadastroPO.clicarBotaoCadastrar()
+        cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
+        cy.get(cadastroPO.selectors.erroCredenciais).should('be.visible')
+      })
 
-    it('Cadastro sem confirmar Senha', ()=> {
-      cadastro.preenchendoSemConfirmarSenha(user)
-    })
+      it('Cadastro sem confirmar Senha', ()=> {
+        cadastroPO.preencherNome(user.name)
+        cadastroPO.preencherEmail(user.email)
+        cadastroPO.preencherSenhaErrada(user.password)
+        cadastroPO.confirmarSenha(user.password)
+        cadastroPO.clicarBotaoCadastrar()
+        cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
+        cy.get(cadastroPO.selectors.erroCredenciais).should('be.visible')
+      })
 
-    it('Cadastro com senha diferente da confirmada', ()=>{
-      cadastro.preenchendoSenhaDiferente(user)
-    })
-  })
-
-});
+      it('Cadastro com senha diferente da confirmada', ()=>{
+        cadastroPO.preencherNome(user.name)
+        cadastroPO.preencherEmail(user.email)
+        cadastroPO.preencherSenha(user.password)
+        cadastroPO.preencherSenhaErrada(user.password)
+        cadastroPO.clicarBotaoCadastrar()
+        cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
+        cy.get(cadastroPO.selectors.erroCredenciais).should('be.visible')
+      })
+})

@@ -1,65 +1,123 @@
 const faker = require('faker');
 faker.locale = 'pt_BR';
 const user = {};
-const adocaoElements = require('../PageObjects/Elements/adocaoElements');
-
-
+import adocaoPO from '../support/adocao/adocaoPO';
 
 describe('Testes Login AdoPet', () => {
   beforeEach(() => {
     cy.visit(Cypress.env('baseUrl') + Cypress.env('loginPath'));
-    cy.get(adocaoElements.inputEmailLogin).type('teste123456789@protechsolutions.com.br', {delay:0})
-    cy.get(adocaoElements.inputSenhaLogin).type('senhaCorreta1', {delay:0})
-    cy.get(adocaoElements.botaoEnviar).click()
+    adocaoPO.preencherEmailLogin()
+    adocaoPO.preencherSenhaLogin()
+    adocaoPO.clicarBotaoEnviar()
+    //cy.wait(3000)
   });
 
   user.name = faker.name.findName();
   user.phone = faker.phone.phoneNumber().replace(/\D+/g, ''); 
   user.animalName = (faker.animal.type() + ' ' + faker.company.companyName()).substr(0, 25); 
   user.textArea = faker.lorem.paragraphs(2);
-  
-  context('Page Object', () => {
-    const adocao = require('../PageObjects/adocao');
 
-    it('Adoção através de mensagem', () => {
-      cy.wait(1000)
-      adocao.adocaoPorMensagem(user); // Pass the user object as an argument
+  it('Adoção através de mensagem', () => {
+    cy.wait(3000)
+    adocaoPO.clicarBotaoMensagem()
+    //cy.wait(3000)
+    //adocaoPO.clicarBotaoMensagem()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
     });
 
-    it('Adoção Dunga', () => {
-      adocao.adocaoDunga(user)
-    });
+  it('Adoção Dunga', () => {
+    adocaoPO.selecionarDunga()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
+  });
 
-    it('Adoção Felícia', () => {
-      adocao.adocaoFelicia(user)
-    });
+  it('Adoção Felícia', () => {
+    adocaoPO.selecionarFelicia()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
+  });
 
-    it('Adoção Sirius', () => {
-      adocao.adocaoSirius(user)
-    });
+  it('Adoção Sirius', () => {
+    cy.wait(2000)
+    adocaoPO.selecionarSirius()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
+  });
 
-    it('Adoção Fiona', () => {
-      adocao.adocaoFiona(user)
-    });
+  it('Adoção Fiona', () => {
+    adocaoPO.selecionarFiona()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
+  });
 
-    it('Adoção Sid', () => {
-      adocao.adocaoSid(user)
-    });
+  it('Adoção Sid', () => {
+    adocaoPO.selecionarSid()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
+  });
     
-    it('Adoção Yoda', () => {
-      adocao.adocaoYoda(user)
-    });
+  it('Adoção Yoda', () => {
+    adocaoPO.selecionarYoda()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
+  });
     
-    it('Adoção Lua', () => {
-      adocao.adocaoLua(user)
-    });
+  it('Adoção Lua', () => {
+    adocaoPO.selecionarLua()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
+  });
     
-    it('Adoção Amora', () => {
-      adocao.adocaoAmora(user)
-    });
+  it('Adoção Amora', () => {
+    adocaoPO.selecionarAmora()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
+  });
 
-    it('Adoção Zelda', () => {
-      adocao.adocaoZelda(user)
-    });
+  it('Adoção Zelda', () => {
+    adocaoPO.selecionarZelda()
+    adocaoPO.preencherNome(user.name);
+    adocaoPO.preencherTelefone(user.phone);
+    adocaoPO.preencherPetName(user.animalName);
+    adocaoPO.preencherMensagem(user.textArea);
+    adocaoPO.clicarBotaoEnviar();
+    cy.url().should('be.eq', 'https://adopet-frontend-cypress.vercel.app/home')
   });
 });
