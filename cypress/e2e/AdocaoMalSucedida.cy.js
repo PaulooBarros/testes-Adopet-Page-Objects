@@ -196,7 +196,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
         cy.get('.error').should('be.visible');
     });
     
-    it('Adoção Sid sem informar caixa de mensagem', () => {
+    it('Adoção Fiona sem informar caixa de mensagem', () => {
         adocaoComErroPO.selecionarResponsavel(4)
 
         cy.get("@user").then((user) => {
@@ -209,7 +209,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
 
     it('Adoção Sid sem informar Nome', () => {
-        adocaoComErroPO.selecionarResponsavel(4)
+        adocaoComErroPO.selecionarResponsavel(5)
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherTelefone(user.phone);
             adocaoComErroPO.preencherPetName(user.animalName);
@@ -220,7 +220,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Sid sem informar Telefone', () => {
-        adocaoComErroPO.selecionarResponsavel(4)
+        adocaoComErroPO.selecionarResponsavel(5)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -232,7 +232,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Sid sem informar Nome do Animal', () => {
-        adocaoComErroPO.selecionarResponsavel(4)
+        adocaoComErroPO.selecionarResponsavel(5)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -244,7 +244,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Sid sem informar caixa de mensagem', () => {
-        adocaoComErroPO.selecionarResponsavel(4)
+        adocaoComErroPO.selecionarResponsavel(5)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -256,7 +256,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Yoda sem informar Nome', () => {
-        adocaoComErroPO.selecionarResponsavel(5)
+        adocaoComErroPO.selecionarResponsavel(6)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherTelefone(user.phone);
@@ -268,7 +268,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Yoda sem informar Telefone', () => {
-        adocaoComErroPO.selecionarResponsavel(5)
+        adocaoComErroPO.selecionarResponsavel(6)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -280,7 +280,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Yoda sem informar Nome do Animal', () => {
-        adocaoComErroPO.selecionarResponsavel(5)
+        adocaoComErroPO.selecionarResponsavel(6)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -292,7 +292,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Yoda sem informar caixa de mensagem', () => {
-        adocaoComErroPO.selecionarResponsavel(5)
+        adocaoComErroPO.selecionarResponsavel(6)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -304,7 +304,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Lua sem informar Nome', () => {
-        adocaoComErroPO.selecionarResponsavel(6)
+        adocaoComErroPO.selecionarResponsavel(7)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherTelefone(user.phone);
@@ -316,7 +316,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Lua sem informar Telefone', () => {
-        adocaoComErroPO.selecionarResponsavel(6)
+        adocaoComErroPO.selecionarResponsavel(7)
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
             adocaoComErroPO.preencherPetName(user.animalName);
@@ -327,7 +327,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Lua sem informar Nome do Animal', () => {
-        adocaoComErroPO.selecionarResponsavel(6)
+        adocaoComErroPO.selecionarResponsavel(7)
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
             adocaoComErroPO.preencherTelefone(user.phone);
@@ -338,7 +338,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Lua sem informar caixa de mensagem', () => {
-        adocaoComErroPO.selecionarResponsavel(6)
+        adocaoComErroPO.selecionarResponsavel(7)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -350,7 +350,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
 
     it('Adoção Amora sem informar Nome', () => {
-        adocaoComErroPO.selecionarResponsavel(7)
+        adocaoComErroPO.selecionarResponsavel(8)
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherTelefone(user.phone);
             adocaoComErroPO.preencherPetName(user.animalName);
@@ -361,7 +361,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Amora sem informar Telefone', () => {
-        adocaoComErroPO.selecionarResponsavel(7)
+        adocaoComErroPO.selecionarResponsavel(8)
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
             adocaoComErroPO.preencherPetName(user.animalName);
@@ -372,7 +372,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Amora sem informar Nome do Animal', () => {
-        adocaoComErroPO.selecionarResponsavel(7)
+        adocaoComErroPO.selecionarResponsavel(8)
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
             adocaoComErroPO.preencherTelefone(user.phone);
@@ -383,7 +383,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Amora sem informar caixa de mensagem', () => {
-        adocaoComErroPO.selecionarResponsavel(7)
+        adocaoComErroPO.selecionarResponsavel(8)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -395,7 +395,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
 
     it('Adoção Zelda sem informar Nome', () => {
-        adocaoComErroPO.selecionarResponsavel(8);
+        adocaoComErroPO.selecionarResponsavel(9);
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherTelefone(user.phone);
             adocaoComErroPO.preencherPetName(user.animalName);
@@ -406,7 +406,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Zelda sem informar Telefone', () => {
-        adocaoComErroPO.selecionarResponsavel(8)
+        adocaoComErroPO.selecionarResponsavel(9)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -418,7 +418,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Zelda sem informar Nome do Animal', () => {
-        adocaoComErroPO.selecionarResponsavel(8)
+        adocaoComErroPO.selecionarResponsavel(9)
 
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
@@ -430,7 +430,7 @@ describe('Testes de adoção que devem ser mal sucedidos.', () => {
     });
     
     it('Adoção Zelda sem informar caixa de mensagem', () => {
-        adocaoComErroPO.selecionarResponsavel(7)
+        adocaoComErroPO.selecionarResponsavel(9)
         cy.get("@user").then((user) => {
             adocaoComErroPO.preencherNome(user.name);
             adocaoComErroPO.preencherTelefone(user.phone);
