@@ -7,15 +7,7 @@ class AdocaoComErroPO {
     preencherEmailLogin() {cy.get(this.selectors.inputEmailLogin).type('emaildeteste@protechsolutions.com.br')}
     preencherSenhaLogin() {cy.get(this.selectors.inputSenhaLogin).type('senhaCorreta1')}
     clicarBotaoMensagem() {cy.get(this.selectors.headerMessagem).click()}
-    selecionarDunga() {cy.get(this.selectors.responsavelDunga).click()}
-    selecionarFelicia() {cy.get(this.selectors.responsavelFelicia).click()}
-    selecionarSirius() {cy.get(this.selectors.responsavelSirius).click()}
-    selecionarFiona() {cy.get(this.selectors.responsavelFiona).click()}
-    selecionarSid() {cy.get(this.selectors.responsavelSid).click()}
-    selecionarYoda() {cy.get(this.selectors.responsavelYoda).click()}
-    selecionarLua() {cy.get(this.selectors.responsavelLua).click()}
-    selecionarAmora() {cy.get(this.selectors.responsavelAmora).click()}
-    selecionarZelda() {cy.get(this.selectors.responsavelZelda).click()}
+    selecionarResponsavel(index = 1) {cy.get(this.selectors.responsavel(index)).click()}  
 
     pathHome = `${Cypress.env('baseUrl')}/home`
     selectors = {
@@ -27,18 +19,8 @@ class AdocaoComErroPO {
          petName:  '#petName',
          caixaMsg: '#msg',
          botaoEnviar: '[data-test="submit-button"]',
-         responsavelDunga: ':nth-child(1) > .card__contact',
-         responsavelFelicia: ':nth-child(2) > .card__contact',
-         responsavelSirius: ':nth-child(3) > .card__contact',
-         responsavelFiona: ':nth-child(4) > .card__contact',
-         responsavelSid: ':nth-child(5) > .card__contact',
-         responsavelYoda: ':nth-child(6) > .card__contact',
-         responsavelLua: ':nth-child(7) > .card__contact',
-         responsavelAmora: ':nth-child(8) > .card__contact',
-         responsavelZelda :':nth-child(9) > .card__contact'
+         responsavel: (index = 1) => `:nth-child(${index}) > .card__contact`,
     }
-
-    
 }
 
 const adocaoComErroPO = new AdocaoComErroPO();

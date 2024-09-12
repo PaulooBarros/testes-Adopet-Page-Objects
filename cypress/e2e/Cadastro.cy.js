@@ -11,43 +11,43 @@ describe('Testes Cadastro Adopet', () => {
     user.password = faker.internet.password(); 
   });
 
-      it('Cadastro com dados válidos',()=>{
+  it('Cadastro com dados válidos',()=>{
         cadastroPO.preencherNome(user.name)
         cadastroPO.preencherEmail(user.email)
         cadastroPO.preencherSenha(user.password)
         cadastroPO.confirmarSenha(user.password)
         cadastroPO.clicarBotaoCadastrar()
         cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('loginPath'))
-      })
+  })
 
-      it('Cadastro sem o campo Nome',()=>{
+  it('Cadastro sem o campo Nome',()=>{
         cadastroPO.preencherEmail(user.email)
         cadastroPO.preencherSenha(user.password)
         cadastroPO.confirmarSenha(user.password)
         cadastroPO.clicarBotaoCadastrar()
         cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
        
-     })
+  })
    
-      it('Cadastro sem o campo Email', ()=> {
+  it('Cadastro sem o campo Email', ()=> {
         cadastroPO.preencherNome(user.name)
         cadastroPO.preencherSenha(user.password)
         cadastroPO.confirmarSenha(user.password)
         cadastroPO.clicarBotaoCadastrar()
         cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
         cy.get(cadastroPO.selectors.erroCredenciais).should('be.visible')
-      })
+  })
 
-      it('Cadastro sem o campo Senha', ()=> {
+  it('Cadastro sem o campo Senha', ()=> {
         cadastroPO.preencherNome(user.name)
         cadastroPO.preencherEmail(user.email)
         cadastroPO.confirmarSenha(user.password)
         cadastroPO.clicarBotaoCadastrar()
         cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
         cy.get(cadastroPO.selectors.erroCredenciais).should('be.visible')
-      })
+  })
 
-      it('Cadastro sem confirmar Senha', ()=> {
+  it('Cadastro sem confirmar Senha', ()=> {
         cadastroPO.preencherNome(user.name)
         cadastroPO.preencherEmail(user.email)
         cadastroPO.preencherSenhaErrada(user.password)
@@ -55,9 +55,9 @@ describe('Testes Cadastro Adopet', () => {
         cadastroPO.clicarBotaoCadastrar()
         cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
         cy.get(cadastroPO.selectors.erroCredenciais).should('be.visible')
-      })
+  })
 
-      it('Cadastro com senha diferente da confirmada', ()=>{
+  it('Cadastro com senha diferente da confirmada', ()=>{
         cadastroPO.preencherNome(user.name)
         cadastroPO.preencherEmail(user.email)
         cadastroPO.preencherSenha(user.password)
@@ -65,5 +65,5 @@ describe('Testes Cadastro Adopet', () => {
         cadastroPO.clicarBotaoCadastrar()
         cy.url().should('be.eq', Cypress.env('baseUrl') + Cypress.env('cadastroPath'))
         cy.get(cadastroPO.selectors.erroCredenciais).should('be.visible')
-      })
+  })
 })

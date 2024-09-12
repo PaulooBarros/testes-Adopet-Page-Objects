@@ -13,14 +13,11 @@ describe('Testes Login AdoPet', () => {
     adocaoPO.preencherEmailLogin()
     adocaoPO.preencherSenhaLogin()
     adocaoPO.clicarBotaoEnviar()
-    //cy.wait(3000)
   });
 
   it('Adoção através de mensagem', () => {
     cy.wait(3000)
     adocaoPO.clicarBotaoMensagem()
-    //cy.wait(3000)
-    //adocaoPO.clicarBotaoMensagem()
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
@@ -30,7 +27,7 @@ describe('Testes Login AdoPet', () => {
     });
 
   it('Adoção Dunga', () => {
-    adocaoPO.selecionarDunga()
+    adocaoPO.selecionarResponsavel(1)
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
@@ -40,7 +37,7 @@ describe('Testes Login AdoPet', () => {
   });
 
   it('Adoção Felícia', () => {
-    adocaoPO.selecionarFelicia()
+    adocaoPO.selecionarResponsavel(2)
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
@@ -51,7 +48,7 @@ describe('Testes Login AdoPet', () => {
 
   it('Adoção Sirius', () => {
     cy.wait(2000)
-    adocaoPO.selecionarSirius()
+    adocaoPO.selecionarResponsavel(3)
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
@@ -61,7 +58,7 @@ describe('Testes Login AdoPet', () => {
   });
 
   it('Adoção Fiona', () => {
-    adocaoPO.selecionarFiona()
+    adocaoPO.selecionarResponsavel(4)
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
@@ -71,7 +68,7 @@ describe('Testes Login AdoPet', () => {
   });
 
   it('Adoção Sid', () => {
-    adocaoPO.selecionarSid()
+    adocaoPO.selecionarResponsavel(5)
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
@@ -81,7 +78,7 @@ describe('Testes Login AdoPet', () => {
   });
     
   it('Adoção Yoda', () => {
-    adocaoPO.selecionarYoda()
+    adocaoPO.selecionarResponsavel(6)
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
@@ -91,7 +88,7 @@ describe('Testes Login AdoPet', () => {
   });
     
   it('Adoção Lua', () => {
-    adocaoPO.selecionarLua()
+    adocaoPO.selecionarResponsavel(7)
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
@@ -101,7 +98,7 @@ describe('Testes Login AdoPet', () => {
   });
     
   it('Adoção Amora', () => {
-    adocaoPO.selecionarAmora()
+    adocaoPO.selecionarResponsavel(8)
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
@@ -111,7 +108,7 @@ describe('Testes Login AdoPet', () => {
   });
 
   it('Adoção Zelda', () => {
-    adocaoPO.selecionarZelda()
+    adocaoPO.selecionarResponsavel(9)
     adocaoPO.preencherNome(user.name);
     adocaoPO.preencherTelefone(user.phone);
     adocaoPO.preencherPetName(user.animalName);
