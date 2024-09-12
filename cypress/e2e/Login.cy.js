@@ -5,7 +5,7 @@ describe('Testes Login AdoPet', () => {
 
     beforeEach(() => {
         cy.visit(Cypress.env('baseUrl') + Cypress.env('loginPath'));
-        user.email = 'teste123456789@protechsolutions.com.br';
+        user.email = 'emaildeteste@protechsolutions.com.br';
         user.emailErrado = 'emailErrado@protechsolutions.com.br';
         user.passwordErrada = 'senhaErrada1';
         user.passwordCerta = 'senhaCorreta1';  

@@ -2,6 +2,10 @@ const faker = require('faker');
 faker.locale = 'pt_BR';
 const user = {};
 import adocaoPO from '../support/adocao/adocaoPO';
+user.name = faker.name.findName();
+user.phone = faker.phone.phoneNumber().replace(/\D+/g, ''); 
+user.animalName = (faker.animal.type() + ' ' + faker.company.companyName()).substr(0, 25); 
+user.textArea = faker.lorem.paragraphs(2);
 
 describe('Testes Login AdoPet', () => {
   beforeEach(() => {
@@ -11,11 +15,6 @@ describe('Testes Login AdoPet', () => {
     adocaoPO.clicarBotaoEnviar()
     //cy.wait(3000)
   });
-
-  user.name = faker.name.findName();
-  user.phone = faker.phone.phoneNumber().replace(/\D+/g, ''); 
-  user.animalName = (faker.animal.type() + ' ' + faker.company.companyName()).substr(0, 25); 
-  user.textArea = faker.lorem.paragraphs(2);
 
   it('Adoção através de mensagem', () => {
     cy.wait(3000)

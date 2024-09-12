@@ -4,7 +4,7 @@ class AdocaoPO {
     preencherPetName(petName) {cy.get(this.selectors.petName).type(petName, {delay: 0});}
     preencherMensagem(mensagem) {cy.get(this.selectors.caixaMsg).type(mensagem, {delay: 0});}
     clicarBotaoEnviar() {cy.get(this.selectors.botaoEnviar).click();}
-    preencherEmailLogin() {cy.get(this.selectors.inputEmailLogin).type('teste123456789@protechsolutions.com.br')}
+    preencherEmailLogin() {cy.get(this.selectors.inputEmailLogin).type('emaildeteste@protechsolutions.com.br')}
     preencherSenhaLogin() {cy.get(this.selectors.inputSenhaLogin).type('senhaCorreta1')}
     clicarBotaoMensagem() {cy.get(this.selectors.headerMessagem).click()}
     selecionarDunga() {cy.get(this.selectors.responsavelDunga).click()}
