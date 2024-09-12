@@ -24,5 +24,5 @@ class AdocaoComErroPO {
 }
 
 const adocaoComErroPO = new AdocaoComErroPO();
-
 export default adocaoComErroPO;
+
